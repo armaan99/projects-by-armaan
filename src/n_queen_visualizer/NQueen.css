@@ -32,44 +32,18 @@
     flex-direction: row;
 }
 
-/* .nqueen-body .left-section, .nqueen-body .right-section {
-    height: 100%;
+.nqueen-body .left-section, .nqueen-body .right-section {
     width: 30vw;
+    padding-top: 100px;
+}
+
+.nqueen-body .middle-section {
+    width: 40vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10%;
-}
-
-.nqueen-body .left-section .size-title {
-    background-color: blue;
-}
-
-.nqueen-body .left-section .nqueen-size {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30%;
-    background-color: green;
-}
-
-.nqueen-body .left-section .size-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid white;
-    background: radial-gradient(circle at top right, #195a82, #13141c);
-    color: white;
-    font-size: x-large;
-    font-weight: bolder;
-    border-radius: 50%;
-    aspect-ratio: 1;
-} */
-
-.nqueen-body .left-section, .nqueen-body .right-section {
-    width: 30vw;
-    padding-top: 100px;
+    gap: 3%;
 }
 
 .nqueen-body .left-section .size-title {
@@ -107,21 +81,6 @@
 
 .nqueen-body .left-section .size-btn:active {
     transform: scale(0.9);
-}
-
-.nqueen-body .right-section img{
-    height: 65%;
-    width: 35%;
-    margin-left: 35%;
-}
-
-.nqueen-body .middle-section {
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3%;
 }
 
 .chess-board {
@@ -178,5 +137,42 @@
 }
 
 .btn-section .visualize-btn:active {
+    transform: scale(0.9);
+}
+
+.nqueen-body .right-section .speed-title {
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.nqueen-body .right-section .nqueen-speed {
+    width: 50%;
+    font-weight: bold;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.nqueen-body .right-section .speed-btn {
+    width: 60%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;
+    background: radial-gradient(circle at top right, #195a82, #13141c);
+    border: 2px solid #D6F0FA;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nqueen-body .right-section .speed-btn:active {
     transform: scale(0.9);
 }

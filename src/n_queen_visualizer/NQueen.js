@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./NQueen.css";
-import QueenImg from "./images/Queen.png";
 
 export default function NQueen() {
-  const defaultBoardSize = 8;
-  const [board, setBoard] = useState(Array(defaultBoardSize).fill(-1));
+  const [board, setBoard] = useState(Array(8).fill(-1));
+  const speedName = ["Very Slow", "Slow", "Normal", "Fast", "Very Fast"];
+  const speed = [100, 500, 1000, 1500, 2000];
+  const currSpeed = useRef(1000);
 
-  const [queenInCol, setQueenInCol] = useState([
-    -1, -1, -1, -1, -1, -1, -1, -1,
-  ]);
+  const [queenInCol, setQueenInCol] = useState(Array(8).fill(-1));
 
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [completed, setCompleted] = useState(false);
@@ -35,15 +34,18 @@ export default function NQueen() {
     if (!completed) {
       for (let col = 0; col < board.length; ++col) {
         setQueenInCol([...queenInCol, (queenInCol[row] = col)]);
-        await new Promise((resolve) => setTimeout(resolve, 100));
-        await new Promise((resolve) => setTimeout(resolve, 5));
+
+        await new Promise((resolve) => setTimeout(resolve, currSpeed.current));
+
         if (await isSafe(row, col)) {
           if (await solveNQueens(row + 1)) return true;
           setQueenInCol([...queenInCol, (queenInCol[row] = -1)]);
         }
       }
       setQueenInCol([...queenInCol, (queenInCol[row] = -1)]);
-      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      await new Promise((resolve) => setTimeout(resolve, currSpeed.current));
+
       return false;
     }
   }
@@ -51,6 +53,7 @@ export default function NQueen() {
   async function visualize() {
     if (!isVisualizing) {
       setIsVisualizing(true);
+      setCompleted(false);
       await solveNQueens(0);
       setIsVisualizing(false);
       setQueenInCol(queenInCol);
@@ -145,7 +148,20 @@ export default function NQueen() {
 
         {/* Body Right Section */}
         <div className="right-section">
-          <img src={QueenImg} alt="" />
+          <div className="speed-title">Visualization Speed</div>
+          <div className="nqueen-speed">
+            {[4, 3, 2, 1, 0].map((idxVal, speedIdx) => (
+              <div
+                key={speedIdx}
+                className="speed-btn"
+                onClick={() => {
+                  currSpeed.current = speed[speedIdx];
+                }}
+              >
+                {speedName[idxVal]}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
