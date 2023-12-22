@@ -68,7 +68,7 @@
     border-collapse: collapse;
 }
 
-.cell {
+.sudoku-board table .cell {
     width: 45px;
     height: 45px;
     font-size: 20px;

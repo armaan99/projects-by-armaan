@@ -1,3 +1,8 @@
+---------------------------
+How Computer Plays the Game
+Algorithm by Armaan Agrawal
+---------------------------
+
 Computer Plays even moves
 
 Case 1: H plays Center Square

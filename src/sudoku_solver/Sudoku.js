@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Sudoku.css";
-import ninjaLeft from "./ninja_left.png";
-import ninjaRight from "./ninja_right.png";
+import ninjaLeft from "./images/ninja_left.png";
+import ninjaRight from "./images/ninja_right.png";
 import { isInitialValid } from "./InitialCheck";
 import { solver } from "./HelperFunctions";
 

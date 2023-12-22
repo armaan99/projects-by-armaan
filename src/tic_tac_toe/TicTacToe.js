@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./TicTacToe.css";
 import { checkWinner, computerMove } from "./HelperFunction";
-import X_tick from "./X.png";
-import O_tick from "./O.png";
-import D_tick from "./D.png";
-import TTT from "./TTT.png";
+import X_tick from "./images/X.png";
+import O_tick from "./images/O.png";
+import D_tick from "./images/D.png";
+import TTT from "./images/TTT.png";
 
 export default function TicTacToe() {
   useEffect(() => {
@@ -194,7 +194,7 @@ export default function TicTacToe() {
 
         {/* Body Right Section */}
         <div className="right-section">
-          <div className="ttt-stats-title">Game Results</div>
+          <div className="ttt-stats-title">Score Board</div>
           <div className="ttt-stats">
             <div className="ttt-stats-label">
               <img src={X_tick} alt="" />

@@ -1,0 +1,182 @@
+.n-queen {
+    background-color: #071521;
+    height: 100vh;
+    width: 100vw;
+}
+
+.nqueen-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 14vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.nqueen-header .title {
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+.nqueen-header .sub-title {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: calc(1.1 * 0.1em);
+}
+
+.nqueen-body {
+    height: 82vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* .nqueen-body .left-section, .nqueen-body .right-section {
+    height: 100%;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.nqueen-body .left-section .size-title {
+    background-color: blue;
+}
+
+.nqueen-body .left-section .nqueen-size {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30%;
+    background-color: green;
+}
+
+.nqueen-body .left-section .size-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    background: radial-gradient(circle at top right, #195a82, #13141c);
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    border-radius: 50%;
+    aspect-ratio: 1;
+} */
+
+.nqueen-body .left-section, .nqueen-body .right-section {
+    width: 30vw;
+    padding-top: 100px;
+}
+
+.nqueen-body .left-section .size-title {
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.nqueen-body .left-section .nqueen-size {
+    width: 50%;
+    font-weight: bold;
+    margin-left: 25%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:40px;
+    padding: 10px;
+}
+
+.nqueen-body .left-section .size-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top right, #195a82, #13141c);
+    border: 2px solid #D6F0FA;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nqueen-body .left-section .size-btn:active {
+    transform: scale(0.9);
+}
+
+.nqueen-body .right-section img{
+    height: 65%;
+    width: 35%;
+    margin-left: 35%;
+}
+
+.nqueen-body .middle-section {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+
+.chess-board {
+    width: 95%;
+    aspect-ratio: 1;
+    border: 3px solid #D6F0FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chess-grid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+.chess-grid .row {
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+.chess-board .cell {
+    border-radius: 0;
+    cursor: default;
+}
+
+.chess-board .cell img {
+    margin-left: 25%;
+    height: 50%;
+    width: 50%;
+    margin-top: 25%;
+}
+
+.btn-section {
+    height: 8%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-section .visualize-btn {
+    padding: 8px 18px;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background: radial-gradient(circle at top right, #195a82, #13141c);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-section .visualize-btn:active {
+    transform: scale(0.9);
+}
