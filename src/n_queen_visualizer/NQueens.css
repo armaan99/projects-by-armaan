@@ -1,0 +1,290 @@
+.nqueens {
+  height: 100vh;
+  width: 100vw;
+  background-color: #071521;
+}
+
+/* ------------------------------------------------ */
+.nqueens-header {
+  height: 17vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nqueens-header .title {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.nqueens-header .sub-title {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: calc(1.1 * 0.1em);
+}
+
+/* ------------------------------------------------ */
+.nqueens-body {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* --------------------------- */
+.board-size {
+  width: 350px;
+}
+
+.board-size .size-title {
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.board-size .nqueen-size {
+  width: 60%;
+  font-weight: bold;
+  margin-left: 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 40px;
+}
+
+.board-size .nqueen-size .size-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top right, #195a82, #13141c);
+  border: 2px solid #d6f0fa;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.board-size .nqueen-size .size-btn:active {
+  transform: scale(0.9);
+}
+
+/* --------------------------- */
+.chess-board {
+  background-color: #d6f0fa;
+  width: calc(90% - 50px);
+  aspect-ratio: 1;
+  max-width: 530px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chess-grid {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.chess-grid .row {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.chess-board .chess-board-cell {
+  border-radius: 0;
+  cursor: default;
+}
+
+.chess-board .chess-board-cell img {
+  margin-left: 25%;
+  height: 50%;
+  width: 50%;
+  margin-top: 25%;
+}
+
+/* --------------------------- */
+.visualization-speed {
+  width: 350px;
+}
+
+.visualization-speed .speed-title {
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.visualization-speed .nqueens-speed {
+  width: 50%;
+  font-weight: bold;
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.visualization-speed .nqueens-speed .speed-btn {
+  width: 60%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  background: radial-gradient(circle at top right, #195a82, #13141c);
+  border: 2px solid #d6f0fa;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.visualization-speed .nqueens-speed .speed-btn:active {
+  transform: scale(0.9);
+}
+
+/* ------------------------------------------------ */
+.nqueens-footer {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+}
+
+.nqueens-visualize-btn {
+  height: fit-content;
+  padding: 8px 20px;
+  background: radial-gradient(circle at top right, #195a82, #13141c);
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #d6f0fa;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nqueens-visualize-btn:active {
+  transform: scale(0.9);
+}
+
+/* ------------------------------------------------ */
+@media only screen and (max-width: 1300px) {
+  .nqueens {
+    height: auto;
+  }
+
+  .nqueens-body {
+    height: auto;
+    display: grid;
+    grid-template-areas: "size" "speed" "board";
+    place-items: center;
+  }
+
+  .nqueens-body .board-size {
+    grid-area: size;
+    width: 100vw;
+  }
+
+  .board-size .size-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .board-size .nqueen-size {
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .visualization-speed .speed-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .nqueens-body .visualization-speed {
+    grid-area: speed;
+    width: 100vw;
+  }
+
+  .visualization-speed .nqueens-speed {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .visualization-speed .nqueens-speed .speed-btn {
+    width: 100px;
+  }
+
+  .nqueens-body .chess-board {
+    grid-area: board;
+    margin-top: 60px;
+    display: flex;
+  }
+
+  .nqueens-footer {
+    margin-top: 40px;
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .nqueens-header .title {
+    font-size: 45px;
+  }
+
+  .nqueens-header .sub-title {
+    font-size: 18px;
+  }
+
+  .nqueens-body .board-size .size-title {
+    font-size: x-large;
+  }
+
+  .nqueens-body .board-size .nqueen-size {
+    gap: 15px;
+  }
+
+  .nqueens-body .board-size .nqueen-size .size-btn {
+    height: 30px;
+    width: 30px;
+    font-size: large;
+  }
+
+  .nqueens-body .visualization-speed .speed-title {
+    font-size: x-large;
+  }
+
+  .visualization-speed .nqueens-speed .speed-btn {
+    width: 80px;
+    height: 30px;
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .nqueens-header .title {
+    font-size: 30px;
+  }
+
+  .nqueens-header .sub-title {
+    font-size: 14px;
+  }
+}

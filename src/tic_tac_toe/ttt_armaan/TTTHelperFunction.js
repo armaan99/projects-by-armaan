@@ -1,4 +1,11 @@
-// All possible ways in which on can win
+// ............................................................
+// Basic Variables
+// ............................................................
+const BLANK = null;
+const C = "O";
+const H = "X";
+
+// All possible ways in which one can win
 const winning_lines = [
   [0, 1, 2],
   [3, 4, 5],
@@ -10,50 +17,60 @@ const winning_lines = [
   [2, 4, 6],
 ];
 
+// ............................................................
+// Private Member Functions
+// ............................................................
+
 // To check if there is any winning move
 function possWin(board, player) {
-  let key = null;
-  if (player === "H") key = "X";
-  else if (player === "C") key = "O";
+  let key = BLANK;
+  if (player === "H") key = H;
+  else if (player === "C") key = C;
 
   for (let i = 0; i < winning_lines.length; ++i) {
     const [a, b, c] = winning_lines[i];
-    console.log(winning_lines[i]);
-    if (board[a] === null && board[b] === key && board[c] === key) {
+    if (board[a] === BLANK && board[b] === key && board[c] === key) {
       return a;
-    } else if (board[a] === key && board[b] === null && board[c] === key) {
+    } else if (board[a] === key && board[b] === BLANK && board[c] === key) {
       return b;
-    } else if (board[a] === key && board[b] === key && board[c] === null) {
+    } else if (board[a] === key && board[b] === key && board[c] === BLANK) {
       return c;
     }
   }
   return null;
 }
 
+// Returns Center Square Position
 function playCenter() {
   return 4;
 }
 
+// Returns first possible empty sqaure position
 function playAnywhere(board) {
-  for (let i = 0; i < 9; ++i) if (board[i] === null) return i;
+  for (let i = 0; i < 9; ++i) if (board[i] === BLANK) return i;
 }
 
+// Return position of first empty corner square
 function playCorner(board) {
   const corners = [0, 2, 6, 8];
   for (let i = 0; i < corners.length; ++i)
-    if (board[corners[i]] === null) return corners[i];
+    if (board[corners[i]] === BLANK) return corners[i];
 }
 
+// Return position of first empty non-corner & non-center square
 function playNonCorner(board) {
-  for (let i = 1; i < 9; i = i + 2) if (board[i] === null) return i;
+  for (let i = 1; i < 9; i = i + 2) if (board[i] === BLANK) return i;
 }
 
-export function computerMove(board, moveCount) {
-  const H = "X";
-  const C = "O";
+// ............................................................
+// Main Driver Function Predicting Computer's Next Move
+// ............................................................
 
+// Return position of best possible move for computer to play
+export function computerMove(board, moveCount) {
+  //......................
   // Second Move
-  //...........................................................................................
+  //......................
   if (moveCount === 2) {
     // If H plays at Center
     if (board[4] === H) {
@@ -61,10 +78,10 @@ export function computerMove(board, moveCount) {
     }
     return playCenter(board);
   }
-  //...........................................................................................
 
+  //......................
   // Fourth Move
-  //...........................................................................................
+  //......................
   if (moveCount === 4) {
     let move = possWin(board, "H");
 
@@ -121,10 +138,10 @@ export function computerMove(board, moveCount) {
     }
     return playAnywhere(board);
   }
-  //...........................................................................................
 
+  //......................
   // Sixth and Eighth Move
-  //...........................................................................................
+  //......................
   if (moveCount === 6 || moveCount === 8) {
     // If C has possibility to win
     let move = possWin(board, "C");
@@ -138,17 +155,18 @@ export function computerMove(board, moveCount) {
   }
 }
 
+// ............................................................
+// Function to check if it's a draw or who is the winner
+// or the game is still still not over yet
+// ............................................................
+
 // Check winning status
 export function checkWinner(board) {
   for (let i = 0; i < winning_lines.length; i++) {
     const [a, b, c] = winning_lines[i];
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      if (board[a] === "X") return "X";
-      else return "O";
-    }
+    if (board[a] !== BLANK && board[a] === board[b] && board[a] === board[c])
+      return board[a];
   }
-
-  if (!board.includes(null)) return "D";
-
+  if (!board.includes(BLANK)) return "D";
   return null;
 }

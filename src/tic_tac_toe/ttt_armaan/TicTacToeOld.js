@@ -47,10 +47,6 @@ export default function TicTacToe() {
   }
 
   useEffect(() => {
-    console.log(moveCount, board);
-  }, [board]);
-
-  useEffect(() => {
     if (moveCount > 4) {
       const winner = checkWinner(board);
       if (winner) {
@@ -87,7 +83,6 @@ export default function TicTacToe() {
     }
     if (!isXNext && moveCount < 9) {
       const compIdx = computerMove(board, moveCount);
-      console.log(moveCount, compIdx);
 
       setBoard((prevArray) => {
         const newArray = [...prevArray];
@@ -170,7 +165,7 @@ export default function TicTacToe() {
                       id={`block${row}${col}`}
                       key={colIdx}
                       className="ttt-cell"
-                      onClick={(e) => userInput(row, col)}
+                      onClick={() => userInput(row, col)}
                     >
                       <img
                         id={`X${row}${col}`}
